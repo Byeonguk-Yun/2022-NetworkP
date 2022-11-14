@@ -192,16 +192,16 @@ public class ChatServer extends JFrame {
 
 		public void Login() {
 			AppendText("새로운 참가자 " + UserName + " 입장.");
-			WriteOne("Welcome to Java chat server\n");
-			WriteOne(UserName + "님 환영합니다.\n"); // 연결된 사용자에게 정상접속을 알림
-			String msg = "[" + UserName + "]님이 입장 하였습니다.\n";
-			WriteOthers(msg); // 아직 user_vc에 새로 입장한 user는 포함되지 않았다.
+			//WriteOne("Welcome to Java chat server\n");
+			//WriteOne(UserName + "님 환영합니다.\n"); // 연결된 사용자에게 정상접속을 알림
+			//String msg = "[" + UserName + "]님이 입장 하였습니다.\n";
+			//WriteOthers(msg); // 아직 user_vc에 새로 입장한 user는 포함되지 않았다.
 		}
 
 		public void Logout() {
-			String msg = "[" + UserName + "]님이 퇴장 하였습니다.\n";
+			//String msg = "[" + UserName + "]님이 퇴장 하였습니다.\n";
 			UserVec.removeElement(this); // Logout한 현재 객체를 벡터에서 지운다
-			WriteAll(msg); // 나를 제외한 다른 User들에게 전송
+			//WriteAll(msg); // 나를 제외한 다른 User들에게 전송
 			AppendText("사용자 " + "[" + UserName + "] 퇴장. 현재 참가자 수 " + UserVec.size());
 		}
 

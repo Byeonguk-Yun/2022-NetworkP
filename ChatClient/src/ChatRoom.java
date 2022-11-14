@@ -111,7 +111,7 @@ public class ChatRoom extends JFrame {
 		contentPane.add(btnSend);
 		setVisible(true);
 
-		AppendText("User " + username + " connecting " + ip_addr + " " + port_no);
+		//AppendText("User " + username + " connecting " + ip_addr + " " + port_no);
 		UserName = username;
 
 		imgBtn = new JButton("");
