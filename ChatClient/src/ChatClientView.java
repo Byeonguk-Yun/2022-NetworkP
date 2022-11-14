@@ -48,6 +48,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import java.awt.Font;
+import javax.swing.DropMode;
 
 public class ChatClientView extends JFrame {
 
@@ -65,6 +66,8 @@ public class ChatClientView extends JFrame {
 	private JLabel lblUserName;
 	//private JTextArea textArea;
 	private JTextPane textArea;
+	private JTextField textFd;
+	private JTextField textMy;
 	/**
 	 * Launch the application.
 	 */
@@ -86,17 +89,37 @@ public class ChatClientView extends JFrame {
 		panel_1.setBackground(new Color(255, 255, 255));
 		panel_1.setBounds(71, 0, 313, 511);
 		contentPane.add(panel_1);
+		panel_1.setLayout(null);
 		
-		JButton userBtn = new JButton("usericon");
+		textFd = new JTextField();
+		textFd.setHorizontalAlignment(SwingConstants.CENTER);
+		textFd.setForeground(new Color(0, 0, 0));
+		textFd.setFont(new Font("±¼¸²", Font.BOLD, 24));
+		textFd.setText("\uCE5C\uAD6C");
+		textFd.setBounds(12, 41, 58, 25);
+		textFd.setBorder(null);
+		panel_1.add(textFd);
+		textFd.setColumns(10);
+		
+		textMy = new JTextField();
+		textMy.setFont(new Font("±¼¸²", Font.BOLD, 16));
+		textMy.setText("\uB0B4 \uD504\uB85C\uD544");
+		textMy.setHorizontalAlignment(SwingConstants.CENTER);
+		textMy.setBounds(12, 87, 80, 21);
+		textMy.setBorder(null);
+		panel_1.add(textMy);
+		textMy.setColumns(10);
+		
+		JButton userBtn = new JButton("");
 		userBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		userBtn.setBounds(12, 39, 50, 50);
+		userBtn.setBounds(12, 28, 50, 50);
 		contentPane.add(userBtn);
 		
-		JButton fdBtn = new JButton("fdicon");
-		fdBtn.setBounds(12, 127, 50, 50);
+		JButton fdBtn = new JButton("");
+		fdBtn.setBounds(12, 112, 50, 50);
 		contentPane.add(fdBtn);
 		
 		try {

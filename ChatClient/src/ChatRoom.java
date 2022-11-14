@@ -103,6 +103,7 @@ public class ChatRoom extends JFrame {
 		txtInput.setBounds(0, 505, 283, 61);
 		contentPane.add(txtInput);
 		txtInput.setColumns(10);
+		txtInput.setBorder(null);
 
 		btnSend = new JButton("Àü¼Û");
 		btnSend.setBackground(new Color(255, 255, 128));
