@@ -116,15 +116,29 @@ public class ChatRoom extends JFrame {
 		UserName = username;
 
 		imgBtn = new JButton("");
-		imgBtn.setIcon(new ImageIcon("C:\\Users\\yeu12\\Downloads\\file.png"));
+		imgBtn.setBackground(new Color(255, 255, 255));
+		imgBtn.setIcon(new ImageIcon(ChatRoom.class.getResource("/images/fileicon.png")));
 		//imgBtn.setFont(new Font("±¼¸²", Font.PLAIN, 16));
-		imgBtn.setBounds(0, 576, 31, 19);
+		imgBtn.setBounds(33, 564, 30, 33);
+		imgBtn.setBorderPainted(false);
+		imgBtn.setBorderPainted(false);
 		contentPane.add(imgBtn);
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBackground(new Color(111, 183, 255));
 		panel_1.setBounds(0, 0, 376, 87);
 		contentPane.add(panel_1);
+		
+		JButton emoticonBtn = new JButton("");
+		emoticonBtn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		emoticonBtn.setIcon(new ImageIcon(ChatRoom.class.getResource("/images/emoticon1.png")));
+		emoticonBtn.setBackground(Color.WHITE);
+		emoticonBtn.setBounds(0, 564, 31, 33);
+		emoticonBtn.setBorderPainted(false);
+		contentPane.add(emoticonBtn);
 
 		view = this;
 

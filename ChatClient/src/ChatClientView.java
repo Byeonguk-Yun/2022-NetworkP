@@ -111,15 +111,23 @@ public class ChatClientView extends JFrame {
 		textMy.setColumns(10);
 		
 		JButton userBtn = new JButton("");
+		userBtn.setIcon(new ImageIcon(ChatClientView.class.getResource("/images/user1 (2).png")));
 		userBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
 		userBtn.setBounds(12, 28, 50, 50);
+		userBtn.setBorderPainted(false);
 		contentPane.add(userBtn);
 		
 		JButton fdBtn = new JButton("");
+		fdBtn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		fdBtn.setIcon(new ImageIcon(ChatClientView.class.getResource("/images/chaticon.png")));
 		fdBtn.setBounds(12, 112, 50, 50);
+		fdBtn.setBorderPainted(false);
 		contentPane.add(fdBtn);
 		
 		try {
