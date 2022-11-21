@@ -132,6 +132,9 @@ public class ChatRoom extends JFrame {
 		JButton emoticonBtn = new JButton("");
 		emoticonBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				ChatEmoticon emo = new ChatEmoticon();
+				emo.setVisible(true);
+
 			}
 		});
 		emoticonBtn.setIcon(new ImageIcon(ChatRoom.class.getResource("/images/emoticon1.png")));
