@@ -1,0 +1,5 @@
+INDEX VERSION 1.131+D:\LectureAndReport\2022-2\NetworkProgramming\Final\.metadata\.plugins\org.eclipse.jdt.core
+1865797976.index
+3501714628.index
+2083174157.index
+3775096494.index
