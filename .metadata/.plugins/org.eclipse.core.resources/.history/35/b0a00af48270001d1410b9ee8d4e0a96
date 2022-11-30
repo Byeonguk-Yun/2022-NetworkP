@@ -13,10 +13,12 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import java.net.Socket;
+import java.util.ArrayList;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.border.LineBorder;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
@@ -37,7 +39,7 @@ public class JavaChatClientView extends JFrame {
 	private DataInputStream dis;
 	private DataOutputStream dos;
 	
-	private Panel myInfoPanel;
+	private Panel myInfoPanel; // 내 프로필, 친구 목록 패널
 	private JButton userBtn;
 	private JButton chatBtn;
 	private JButton addFriendBtn;
@@ -45,7 +47,9 @@ public class JavaChatClientView extends JFrame {
 	private JTextField textMy;
 	private JScrollPane friendPanel;
 	
-	private Panel chatPanel;
+	private Panel chatPanel; // 채팅 목록 패널
+	
+	private ArrayList<String> friendList = new ArrayList<String>();
 	
 	/**
 	 * Create the frame.
@@ -147,30 +151,49 @@ public class JavaChatClientView extends JFrame {
 		private Panel addFriendPanel;
 		private JLabel txt;
 		private JTextField name;
-		private JButton addFriendName = new JButton();
+		private JButton addName;
 		
 		public addFriend() {
 			setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 			setContentPane(mainPane);
-			mainPane.setBounds(130, 130, 300, 350);
+			setBounds(130, 130, 300, 350);
 			mainPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 			addFriendPanel = new Panel();
 			addFriendPanel.setLayout(null);
 			mainPane.add(addFriendPanel);
 			mainPane.setLayout(null);
 			//setSize(300, 300);
-			txt = new JLabel("친구 이름을 입력하고 확인을 누르세요");
+			
+			txt = new JLabel("이름 입력");
+			txt.setFont(new Font("굴림", Font.BOLD, 22));
+			txt.setBounds(98, 90, 110, 30);
+			
 			name = new JTextField();
-			addFriendPanel.add(new JLabel("친구 이름을 입력하고 확인을 누르세요"));
-			addFriendPanel.add(new JTextField());
+			//name.setHorizontalAlignment(JTextField.CENTER);
+			name.setForeground(new Color(0, 0, 0));
+			name.setFont(new Font("굴림", Font.BOLD, 20));
+			name.setBounds(83, 200, 130, 30);
+			name.setBorder(new LineBorder(new Color(0, 0, 0)));
+			
+			addName = new JButton("추가"); // 친구 이름 입력 후 추가하는 버튼
+			addName.setBackground(new Color(255, 255, 200));
+			addName.setFont(new Font("굴림", Font.BOLD, 20));
+			addName.setBounds(120, 240, 50, 35);
+			addName.setBorder(new LineBorder(new Color(0, 0, 0)));
+			addName.addActionListener(this);
+			
+			mainPane.add(txt);	
+			mainPane.add(name);
+			mainPane.add(addName);
 			setVisible(true);
 		}
 		
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			if (e.getSource() == addFriendName) {
-				SendMessage("/add" + name.getText());
-				System.out.print("clicked");
+			if (e.getSource() == addName) {
+				friendList.add(name.getText());
+				System.out.print("friend added");
+				dispose();
 			}
 		}
 	}
@@ -192,7 +215,6 @@ public class JavaChatClientView extends JFrame {
 			}
 			else if (e.getSource() == addFriendBtn) {
 				addFriend af = new addFriend();
-				System.out.print("addFriend clicked");
 			}
 		}
 	}

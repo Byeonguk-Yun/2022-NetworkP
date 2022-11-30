@@ -23,6 +23,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.JTextPane;
+import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -46,6 +47,7 @@ public class JavaChatClientView extends JFrame {
 	private JTextField textFd;
 	private JTextField textMy;
 	private JScrollPane friendPanel;
+	private Panel userInfo;
 	
 	private Panel chatPanel; // 채팅 목록 패널
 	
@@ -113,6 +115,18 @@ public class JavaChatClientView extends JFrame {
 		addFriendBtn.addActionListener(action);
 		myInfoPanel.add(addFriendBtn);
 		
+		JButton myProfPic = new JButton("");
+		myProfPic.setBackground(new Color(255, 255, 255));
+		myProfPic.setIcon(new ImageIcon(JavaChatClientView.class.getResource("/images/smallBasicProfile .png")));
+		myProfPic.setBounds(12, 100, 43, 43);
+		myProfPic.setBorder(null);
+		myInfoPanel.add(myProfPic);
+		
+		JLabel lblNewLabel = new JLabel(username);
+		lblNewLabel.setFont(new Font("굴림", Font.PLAIN, 18));
+		lblNewLabel.setBounds(66, 111, 133, 22);
+		myInfoPanel.add(lblNewLabel);
+		
 		friendPanel = new JScrollPane(); // 친구 목록을 보여주는 스크롤 팬
 		friendPanel.setBounds(73, 156, 313, 357);
 		friendPanel.setBackground(new Color(255, 255, 255));
@@ -123,6 +137,17 @@ public class JavaChatClientView extends JFrame {
 		chatPanel.setBounds(73, 0, 313, 513);
 		contentPane.add(chatPanel);
 		chatPanel.setLayout(null);
+		
+		/*
+		userInfo = new Panel();
+		friendPanel.setLayout(new BoxLayout(friendPanel, BoxLayout.Y_AXIS));
+		
+		ArrayList<JButton> friendButton = new ArrayList<JButton>();
+		for (String friendname : friendList) {
+			JButton friendBtn = new JButton();
+			//friendBtn.setIcon(null)
+			friendPanel.add(userInfo);
+		}*/
 	
 		AppendText("User " + username + " connecting " + ip_addr + " " + port_no);
 		UserName = username;
@@ -168,14 +193,14 @@ public class JavaChatClientView extends JFrame {
 			txt.setFont(new Font("굴림", Font.BOLD, 22));
 			txt.setBounds(98, 90, 110, 30);
 			
-			name = new JTextField();
+			name = new JTextField(); // 친구 이름을 입력하는 필드
 			//name.setHorizontalAlignment(JTextField.CENTER);
 			name.setForeground(new Color(0, 0, 0));
 			name.setFont(new Font("굴림", Font.BOLD, 20));
 			name.setBounds(83, 200, 130, 30);
 			name.setBorder(new LineBorder(new Color(0, 0, 0)));
 			
-			addName = new JButton("추가");
+			addName = new JButton("추가"); // 친구 이름 입력 후 추가하는 버튼
 			addName.setBackground(new Color(255, 255, 200));
 			addName.setFont(new Font("굴림", Font.BOLD, 20));
 			addName.setBounds(120, 240, 50, 35);
