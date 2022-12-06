@@ -167,7 +167,8 @@ public class JavaChatClientView extends JFrame {
 		chatBtn.addActionListener(new ActionListener() { // Chat Button Click
 			public void actionPerformed(ActionEvent e) {
 				//scrollPaneFriendList.setVisible(false);
-				myInfoPanel.setVisible(false);
+				myInfoPanel.setVisible(true);
+				
 				//scrollPaneChat.setVisible(true);
 				//profileLabel.setText("채팅");
 				//String username = txtUserName.getText().trim();
@@ -175,6 +176,7 @@ public class JavaChatClientView extends JFrame {
 				//String port_no = txtPortNumber.getText().trim();
 				ChatRoom view3 = new ChatRoom(username, ip_addr, port_no);
 				view3.setVisible(true);
+				view3.setDefaultCloseOperation(view3.DISPOSE_ON_CLOSE);
 				//setVisible(false);
 			}
 		});
@@ -199,6 +201,7 @@ public class JavaChatClientView extends JFrame {
 		lblNewLabel.setBounds(66, 111, 133, 22);
 		myInfoPanel.add(lblNewLabel);
 		
+		
 		chatPanel = new Panel(); // 내 프로필 창
 		chatPanel.setBackground(new Color(255, 255, 255));
 		chatPanel.setBounds(73, 0, 313, 513);
@@ -211,6 +214,8 @@ public class JavaChatClientView extends JFrame {
 		newChat.setBorder(new EmptyBorder(0, 0, 0, 0));
 		chatPanel.add(newChat);
 		newChat.setIcon(new ImageIcon(JavaChatClientView.class.getResource("/images/newChat.png")));
+		
+		
 		
 		/*
 		 * for (int i = 0; i < friendNum; i++) { friendPics.get(i).setBounds(12, 0, 43,
