@@ -99,9 +99,8 @@ public class JavaChatClientMain extends JFrame {
 			String username = txtUserName.getText().trim();
 			String ip_addr = txtIpAddress.getText().trim();
 			String port_no = txtPortNumber.getText().trim();
-			JavaChatClientView view = new JavaChatClientView(username, ip_addr, port_no);
-			ChatRoom view2 = new ChatRoom(username, ip_addr, port_no);
 			setVisible(false);
+			JavaChatClientView view = new JavaChatClientView(username, ip_addr, port_no);
 		}
 	}
 }
