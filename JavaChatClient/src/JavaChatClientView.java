@@ -68,6 +68,10 @@ public class JavaChatClientView extends JFrame {
 	private String ip_addr;
 	private String port_no;
 	
+	
+	private JTextField txtUserName;
+	private JTextField txtIpAddress;
+	private JTextField txtPortNumber;
 	/**
 	 * Create the frame.
 	 */
@@ -134,6 +138,46 @@ public class JavaChatClientView extends JFrame {
 		chatBtn.addActionListener(action);
 		contentPane.add(chatBtn);
 		setVisible(true);
+		
+		txtUserName = new JTextField();
+		txtUserName.setHorizontalAlignment(SwingConstants.CENTER);
+		txtUserName.setBounds(101, 39, 116, 33);
+		//contentPane.add(txtUserName);
+		txtUserName.setColumns(10);
+		
+		txtIpAddress = new JTextField();
+		txtIpAddress.setHorizontalAlignment(SwingConstants.CENTER);
+		txtIpAddress.setText("127.0.0.1");
+		txtIpAddress.setColumns(10);
+		txtIpAddress.setBounds(101, 100, 116, 33);
+		//contentPane.add(txtIpAddress);
+		
+		
+		txtPortNumber = new JTextField();
+		txtPortNumber.setText("30000");
+		txtPortNumber.setHorizontalAlignment(SwingConstants.CENTER);
+		txtPortNumber.setColumns(10);
+		txtPortNumber.setBounds(101, 163, 116, 33);
+		//contentPane.add(txtPortNumber);
+		
+		txtUserName.addActionListener(action);
+		txtIpAddress.addActionListener(action);
+		txtPortNumber.addActionListener(action);
+		
+		/*chatBtn.addActionListener(new ActionListener() { // Chat Button Click
+			public void actionPerformed(ActionEvent e) {
+				//scrollPaneFriendList.setVisible(false);
+				myInfoPanel.setVisible(false);
+				//scrollPaneChat.setVisible(true);
+				//profileLabel.setText("채팅");
+				String username = txtUserName.getText().trim();
+				String ip_addr = txtIpAddress.getText().trim();
+				String port_no = txtPortNumber.getText().trim();
+				ChatRoom view3 = new ChatRoom(username, ip_addr, port_no);
+				view3.setVisible(true);
+				//setVisible(false);
+			}
+		});*/
 		
 		addFriendBtn = new JButton(""); // 친구 추가 버튼
 		addFriendBtn.setBackground(new Color(255, 255, 255));
@@ -354,14 +398,12 @@ public class JavaChatClientView extends JFrame {
 				//repaint();
 			}
 			else if (e.getSource() == chatBtn) {
-				userBtnIsClicked = 0;
-				myInfoPanel.setEnabled(false);
-				myInfoPanel.setVisible(false);
-				friendPanel.setEnabled(false);
-				friendPanel.setVisible(false);
-				chatPanel.setVisible(true);
-				userBtn.setFocusable(true);
-				repaint();
+				String username = txtUserName.getText().trim();
+				String ip_addr = txtIpAddress.getText().trim();
+				String port_no = txtPortNumber.getText().trim();
+				ChatRoom view3 = new ChatRoom(username, ip_addr, port_no);
+				//view3.setVisible(true);
+				setVisible(false);
 			}
 			else if (e.getSource() == addFriendBtn) {
 				addFriend af = new addFriend();
